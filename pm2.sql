@@ -9,6 +9,9 @@ DROP TABLE IF EXISTS Review;
 DROP TABLE IF EXISTS Hospital;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Environment;
+DROP TABLE IF EXISTS AreaDistribution;
+DROP TABLE IF EXISTS EducationDistribution;
+DROP TABLE IF EXISTS InsuranceDistribution;
 DROP TABLE IF EXISTS Population;
 DROP TABLE IF EXISTS Address;
 
@@ -48,6 +51,39 @@ CREATE TABLE AgeDistribution (
   CONSTRAINT pk_AgeDistribution_populationId PRIMARY KEY (populationId),
   CONSTRAINT fk_AgeDistribution_populationId FOREIGN KEY (populationId)
     REFERENCES Population(populationId)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+CREATE TABLE AreaDistribution(
+    PopulationId BIGINT auto_increment,
+	Urban INT,
+	Urbancluster INT,
+	Rural INT,
+	CONSTRAINT pk_AreaDistribution_PopulationId PRIMARY KEY (PopulationId),
+	CONSTRAINT fk_AreaDistribution_PopulationId FOREIGN KEY (PopulationId)
+    REFERENCES Population(PopulationId)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE EducationDistribution(
+	PopulationId BIGINT auto_increment,
+    NotHighSchool INT,
+    College INT,
+    CONSTRAINT pk_EducationDistribution_PopulationId PRIMARY KEY (PopulationId),
+	CONSTRAINT fk_EducationDistribution_PopulationId FOREIGN KEY (PopulationId)
+    REFERENCES Population(PopulationId)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE InsuranceDistribution(	
+	PopulationID BIGINT auto_increment,
+    OneInsurance INT,
+    Morelnsurance INT,
+    NoInsurance INT,
+    CONSTRAINT pk_InsuranceDistribution_PopulationId PRIMARY KEY (PopulationId),
+	CONSTRAINT fk_InsuranceDistribution_PopulationId FOREIGN KEY (PopulationId)
+    REFERENCES Population(PopulationId)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -96,24 +132,43 @@ CREATE TABLE Hospital (
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-# Load the data.
-LOAD DATA INFILE 'D:\\tmp\\HW2\\Address.csv' INTO TABLE Address
-  FIELDS TERMINATED BY ','
-  # Windows platforms may need '\r\n'.
-  LINES TERMINATED BY '\r\n';
 
-LOAD DATA INFILE 'D:\\tmp\\HW2\\population.csv' INTO TABLE Population
-  FIELDS TERMINATED BY ','
-   #Windows platforms may need '\r\n'.
-  LINES TERMINATED BY '\r\n';
-  
-LOAD DATA INFILE 'D:\\tmp\\HW2\\GenderDistribution.csv' INTO TABLE GenderDistribution
-  FIELDS TERMINATED BY ','
-   #Windows platforms may need '\r\n'.
-  LINES TERMINATED BY '\r\n';
-  
-LOAD DATA INFILE 'D:\\tmp\\HW2\\AgeDistribution.csv' INTO TABLE AgeDistribution
-  FIELDS TERMINATED BY ','
-   #Windows platforms may need '\r\n'.
-  LINES TERMINATED BY '\r\n';
-  
+
+-- # Load the data.
+-- LOAD DATA INFILE 'D:\\tmp\\HW2\\Address.csv' INTO TABLE Address
+--   FIELDS TERMINATED BY ','
+--   # Windows platforms may need '\r\n'.
+--   LINES TERMINATED BY '\r\n';
+-- 
+-- LOAD DATA INFILE 'D:\\tmp\\HW2\\population.csv' INTO TABLE Population
+--   FIELDS TERMINATED BY ','
+--    #Windows platforms may need '\r\n'.
+--   LINES TERMINATED BY '\r\n';
+--   
+-- LOAD DATA INFILE 'D:\\tmp\\HW2\\GenderDistribution.csv' INTO TABLE GenderDistribution
+--   FIELDS TERMINATED BY ','
+--    #Windows platforms may need '\r\n'.
+--   LINES TERMINATED BY '\r\n';
+--   
+-- LOAD DATA INFILE 'D:\\tmp\\HW2\\AgeDistribution.csv' INTO TABLE AgeDistribution
+--   FIELDS TERMINATED BY ','
+--    #Windows platforms may need '\r\n'.
+--   LINES TERMINATED BY '\r\n';
+-- 
+-- 
+
+
+LOAD DATA INFILE '/tmp/pop-urban.csv' INTO TABLE AreaDistribution
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE '/tmp/pop-edu.csv' INTO TABLE EducationDistribution
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE '/tmp/pop-insurance.csv' INTO TABLE InsuranceDistribution
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
