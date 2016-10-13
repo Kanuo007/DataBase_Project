@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS OccupiedDistribution;
 DROP TABLE IF EXISTS HouseHold;
 DROP TABLE IF EXISTS Diversity;
 DROP TABLE IF EXISTS Population;
+DROP TABLE IF EXISTS Education;
 DROP TABLE IF EXISTS Address;
 
 CREATE TABLE Address (
@@ -199,6 +200,20 @@ CREATE TABLE OccupiedDistribution (
 	REFERENCES HouseHold(HouseHoldId)
     ON UPDATE CASCADE ON DELETE CASCADE
    );
+
+CREATE TABLE Education (
+  AddressId BIGINT,
+  College VARCHAR(255),
+  HighSchool VARCHAR(255),
+  MiddleSchool VARCHAR(255),
+  PrimarySchool VARCHAR(255),
+  Kindergarden VARCHAR(255),
+  CONSTRAINT pk_Education_AddressId PRIMARY KEY (AddressId),
+  CONSTRAINT fk_Education_AddressId FOREIGN KEY (AddressId)
+    REFERENCES Address(AddressId)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 
 
 
