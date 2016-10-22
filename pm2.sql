@@ -89,7 +89,7 @@ CREATE TABLE AreaDistribution(
 );
 
 CREATE TABLE EducationDistribution (
-	PopulationId BIGINT,
+	PopulationId BIGINT auto_increment,
     NotHighSchool INT,
     College INT,
     CONSTRAINT pk_EducationDistribution_PopulationId PRIMARY KEY (PopulationId),
