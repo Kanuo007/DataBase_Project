@@ -166,34 +166,34 @@ CREATE TABLE Hospitals (
 );
 
 
-CREATE TABLE HouseHold(
-   HouseHoldId INT auto_increment,
+CREATE TABLE Household (
+   HouseholdId INT auto_increment,
    AddressId BIGINT NOT NULL,
-   SumOfIncome BIGINT,
-   AVGIncome INT,
-   ChildUnderSix INT,
-   OneOrMoreUnder18 INT,
-   TotalPersons  INT,
-   WithoutTeleService INT,
-   LackFacilities INT,
-   BuiltAfter2010 INT,
+   TotalIncomeOfHouseholds BIGINT,
+   AVGIncomeOfHouseholds INT,
+   NumOfFamilyWithChildUnderSix INT,
+   NumOfFamilyWithOneOrMoreUnder18 INT,
+   TotalPersonsInHouseholds  INT,
+   NumOfHouseholdsWithoutTeleService INT,
+   NumOfHouseholdsLackFacilities INT,
+   NumOfHouseholdsBuiltAfter2010 INT,
    MedianHouseValue INT,
-   TotalValue  BIGINT,
-   NumOfAssistance  Int,
-   MovedInHouseHold INT,
+   TotalHouseValue  BIGINT,
+   NumOfAssistanceFamilies  Int,
+   TotalNumOfHouseholds INT,
+   NumOfHouseholdsMovedInAfter2010 INT,
    CONSTRAINT pk_HouseHold_HouseHoldId PRIMARY KEY (HouseHoldId),
    CONSTRAINT fk_HouseHold_AddressId FOREIGN KEY (AddressId)
    REFERENCES Address(AddressId)
    ON UPDATE CASCADE ON DELETE CASCADE
    );
-   
+
 CREATE TABLE HouseUnitDistribution (
     HouseHoldId INT NOT NULL,
-    TotalHouseUnit INT,
     SingleUnit INT,
     TwoToNineUnit INT,
     TenMoreUnit INT,
-	MobileHome INT,
+    MobileHome INT,
     CONSTRAINT pk_HouseUnitDistribution_HouseHoldId PRIMARY KEY (HouseHoldId),
     CONSTRAINT fk_HouseUnitDistribution_HouseHoldId FOREIGN KEY (HouseHoldId)
 	REFERENCES HouseHold(HouseHoldId)
@@ -213,8 +213,6 @@ CREATE TABLE OccupiedDistribution (
    );
 
 
-
-
 # Load the data.
 LOAD DATA INFILE '/tmp/address.csv' INTO TABLE Address
   FIELDS TERMINATED BY ','
@@ -226,18 +224,18 @@ LOAD DATA INFILE '/tmp/population.csv' INTO TABLE Population
   LINES TERMINATED BY '\n'
   IGNORE 1 LINES;
   
--- LOAD DATA INFILE '/tmp/GenderDistribution.csv' INTO TABLE GenderDistribution
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\n'
---   IGNORE 1 LINES;
---   
--- LOAD DATA INFILE '/tmp/AgeDistribution.csv' INTO TABLE AgeDistribution
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\n'
---   IGNORE 1 LINES;
--- 
--- 
--- 
+LOAD DATA INFILE '/tmp/GenderDistribution.csv' INTO TABLE GenderDistribution
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+  IGNORE 1 LINES;
+  
+LOAD DATA INFILE '/tmp/AgeDistribution.csv' INTO TABLE AgeDistribution
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+  IGNORE 1 LINES;
+
+
+
 LOAD DATA INFILE '/tmp/pop_area.csv' INTO TABLE AreaDistribution
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
@@ -253,8 +251,8 @@ FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES;
 
--- 
--- 
+
+
 -- LOAD DATA INFILE '/tmp/household.csv' INTO TABLE HouseHold
 --   FIELDS TERMINATED BY ','
 --   LINES TERMINATED BY '\n'
