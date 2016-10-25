@@ -24,7 +24,7 @@ CREATE TABLE Address (
   State VARCHAR(255),
   County VARCHAR(255),
   Tract INT,
-  Land INT,
+  LandArea DECIMAL(10, 3),
   CONSTRAINT pk_Address_AddressId PRIMARY KEY (AddressId)
 );
 
