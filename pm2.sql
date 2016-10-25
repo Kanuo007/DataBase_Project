@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS Address;
 CREATE TABLE Address (
   AddressId BIGINT,
   State VARCHAR(255),
-  Country VARCHAR(255),
+  County VARCHAR(255),
   Tract INT,
   Land INT,
   CONSTRAINT pk_Address_AddressId PRIMARY KEY (AddressId)
