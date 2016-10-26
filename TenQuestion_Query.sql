@@ -111,3 +111,19 @@ UNION
 
 
 
+
+# What percentage of each HouseHold that does not have services, MedianHouseValue > 500000?
+SELECT HouseholdId, (100.0 * NumOfHouseholdsWithoutTeleService / TotalNumOfHouseholds) ,MedianHouseValue
+FROM household
+WHERE MedianHouseValue > 500000;
+  
+
+# For each county how many household with more than 3000 person live inside?
+SELECT County NumHouseHold, TotalPersonsInHouseholds FROM
+	(SELECT Address.County,  HouseHold.TotalPersonsInHouseholds, COUNT(*) AS NumHouseHold FROM
+	Address INNER JOIN HouseHold
+		ON HouseHold.AddressId = Address.AddressId
+	GROUP BY Address.County
+	LIMIT 10 ) As data
+WHERE TotalPersonsInHouseholds > 3000;
+
