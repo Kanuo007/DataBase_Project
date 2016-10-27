@@ -110,7 +110,6 @@ UNION
 		LIMIT 3) AS D 
 
 
-
 # What percentage of each HouseHold that does not have services, MedianHouseValue > 500000?
 SELECT HouseholdId, (100.0 * NumOfHouseholdsWithoutTeleService / TotalNumOfHouseholds) ,MedianHouseValue
 FROM household
@@ -118,6 +117,7 @@ WHERE MedianHouseValue > 500000;
   
 
 # For each county how many household with more than 3000 person live inside?
+
 SELECT County, NumHouseHold, TotalPersonsInHouseholds FROM
 	(select Address.County , Household.TotalPersonsInHouseholds, COUNT(*)  AS NumHouseHold FROM
 	Address INNER JOIN Household 
@@ -125,12 +125,6 @@ SELECT County, NumHouseHold, TotalPersonsInHouseholds FROM
 	Group  BY Address.County,Household.TotalPersonsInHouseholds
 	Limit 10) As data
 WHERE TotalPersonsInHouseholds > 3000;
-
-
--- Error Code: 1055. Expression #2 of SELECT list is not in GROUP BY clause and contains 
--- nonaggregated column 'greatneighborhoods.HouseHold.TotalPersonsInHouseholds' 
--- which is not functionally dependent on columns in GROUP BY clause; 
--- this is incompatible with sql_mode=only_full_group_by	0.00092 sec
 
 # what areas that have Male/Female rate than 2?
 SELECT Population.AddressId
@@ -150,3 +144,4 @@ ON OccupiedDistribution.HouseHoldId = HouseHold.HouseHoldId
 GROUP BY Address.State,Address.Tract,RenterPercentage
 HAVING RenterPercentage < 5
 ORDER BY Address.State DESC,RenterPercentage DESC;
+
