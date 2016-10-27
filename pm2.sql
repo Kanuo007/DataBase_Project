@@ -58,7 +58,7 @@ CREATE TABLE Diversity(
 CREATE TABLE GenderDistribution (
   PopulationId BIGINT ,
   Male INT,
-  Femail INT,
+  Female INT,
   CONSTRAINT pk_GenderDistribution_populationId PRIMARY KEY (PopulationId),
   CONSTRAINT fk_GenderDistribution_populationId FOREIGN KEY (PopulationId)
     REFERENCES Population(PopulationId)

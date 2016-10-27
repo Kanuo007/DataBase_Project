@@ -127,3 +127,21 @@ SELECT County NumHouseHold, TotalPersonsInHouseholds FROM
 	LIMIT 10 ) As data
 WHERE TotalPersonsInHouseholds > 3000;
 
+
+# what areas that have Male/Female rate than 2?
+SELECT Population.AddressId
+FROM Population INNER JOIN GenderDistribution
+ON Population.PopulationId = GenderDistribution.PopulationId
+WHERE GenderDistribution.Male / GenderDistribution.Female > 2;
+
+# what tracts have the Renter Unit rate less than 5% in each state? 
+SELECT Address.State,
+	Address.Tract,
+	OccupiedDistribution.RenterOccupiedUnit/OccupiedDistribution.TotalOccupiedUnit*100 AS RenterPercentage
+FROM Address CROSS JOIN HouseHold
+ON Address.AddressId = HouseHold.AddressId
+JOIN OccupiedDistribution
+ON OccupiedDistribution.HouseHoldId = HouseHold.HouseHoldId
+GROUP BY Address.State,Address.Tract,RenterPercentage
+HAVING RenterPercentage < 5
+ORDER BY Address.State DESC,RenterPercentage DESC;
