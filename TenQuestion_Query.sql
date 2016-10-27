@@ -118,13 +118,14 @@ WHERE MedianHouseValue > 500000;
 
 # For each county how many household with more than 3000 person live inside?
 
-SELECT County, NumHouseHold, TotalPersonsInHouseholds FROM
-	(select Address.County , Household.TotalPersonsInHouseholds, COUNT(*)  AS NumHouseHold FROM
-	Address INNER JOIN Household 
-	on Address.AddressId = Household.AddressId
-	Group  BY Address.County,Household.TotalPersonsInHouseholds
-	Limit 10) As data
+  
+SELECT County, NumHouseHold FROM
+	(SELECT Address.County,  HouseHold.TotalPersonsInHouseholds, COUNT(*) AS NumHouseHold FROM
+	Address INNER JOIN HouseHold
+		ON HouseHold.AddressId = Address.AddressId
+	GROUP BY Address.County) As data
 WHERE TotalPersonsInHouseholds > 3000;
+
 
 # what areas that have Male/Female rate than 2?
 SELECT Population.AddressId
