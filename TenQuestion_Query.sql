@@ -124,7 +124,6 @@ SELECT County, SUM(TotalPersonsInHouseholds) FROM
 	GROUP BY County;
 
 
-
 # what areas that have Male/Female rate than 2?
 SELECT Population.AddressId
 FROM Population INNER JOIN GenderDistribution
