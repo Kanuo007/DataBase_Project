@@ -107,7 +107,7 @@ UNION
 			WHERE state ='Texa'
 		GROUP BY State, County
 		ORDER BY County_AVE_RATE DESC
-		LIMIT 3) AS D 
+		LIMIT 3) AS D;
 
 
 # What percentage of each HouseHold that does not have services, MedianHouseValue > 500000?
