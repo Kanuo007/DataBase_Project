@@ -60,7 +60,7 @@ GROUP BY Address.AddressId, state, county, hispanic, white, black, aian, asian, 
 
 
 
-#  List top three county with highest rate of health insurance in each state 
+#  List top three county with highest rate of health insurance in Washington, New York and California state 
 SELECT * FROM(
 		SELECT State, County, AVG((1- NoInsurance/total)*100) AS County_AVE_RATE
 			FROM InsuranceDistribution
