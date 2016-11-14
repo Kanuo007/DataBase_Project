@@ -1,7 +1,7 @@
-package blog.tools;
+package neighbor.tools;
 
-import blog.dal.*;
-import blog.model.*;
+import neighbor.dao.*;
+import neighbor.model.*;
 
 import java.sql.SQLException;
 import java.util.Date;
