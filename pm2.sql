@@ -31,7 +31,7 @@ CREATE TABLE Address (
 
 
 CREATE TABLE Population (
-  PopulationId BIGINT,
+  PopulationId BIGINT AUTO_INCREMENT,
   AddressId BIGINT,
   Total INT,
   CONSTRAINT pk_Population_PopulationId PRIMARY KEY (PopulationId),
@@ -214,67 +214,66 @@ CREATE TABLE OccupiedDistribution (
     ON UPDATE CASCADE ON DELETE CASCADE
    );
 
-
 # Load the data.
-LOAD DATA INFILE '/tmp/address.csv' INTO TABLE Address
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
-  
-LOAD DATA INFILE '/tmp/population.csv' INTO TABLE Population
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
- 
-
-LOAD DATA INFILE '/tmp/GenderDistribution.csv' INTO TABLE GenderDistribution
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
-  
-  
-LOAD DATA INFILE '/tmp/AgeDistribution.csv' INTO TABLE AgeDistribution
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
-
-
-
-LOAD DATA INFILE '/tmp/pop_area.csv' INTO TABLE AreaDistribution
-FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\r'
-IGNORE 1 LINES;
-
-LOAD DATA INFILE '/tmp/pop_edu.csv' INTO TABLE EducationDistribution
-FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\r'
-IGNORE 1 LINES;
-
-LOAD DATA INFILE '/tmp/pop_insurance.csv' INTO TABLE InsuranceDistribution
-FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\r'
-IGNORE 1 LINES;
-
-LOAD DATA INFILE '/tmp/pop_diversity.csv' INTO TABLE Diversity
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
-
-LOAD DATA INFILE '/tmp/household.csv' INTO TABLE HouseHold
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
-  
-  
-LOAD DATA INFILE '/tmp/houseUnits.csv' INTO TABLE HouseUnitDistribution
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
-  
-LOAD DATA INFILE '/tmp/houseOccpied.csv' INTO TABLE OccupiedDistribution
-  FIELDS TERMINATED BY ','
-  LINES TERMINATED BY '\r'
-  IGNORE 1 LINES;
+-- LOAD DATA INFILE '/tmp/address.csv' INTO TABLE Address
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+--   
+-- LOAD DATA INFILE '/tmp/population.csv' INTO TABLE Population
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+--  
+-- 
+-- LOAD DATA INFILE '/tmp/GenderDistribution.csv' INTO TABLE GenderDistribution
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+--   
+--   
+-- LOAD DATA INFILE '/tmp/AgeDistribution.csv' INTO TABLE AgeDistribution
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+-- 
+-- 
+-- 
+-- LOAD DATA INFILE '/tmp/pop_area.csv' INTO TABLE AreaDistribution
+-- FIELDS TERMINATED BY ','
+-- LINES TERMINATED BY '\r'
+-- IGNORE 1 LINES;
+-- 
+-- LOAD DATA INFILE '/tmp/pop_edu.csv' INTO TABLE EducationDistribution
+-- FIELDS TERMINATED BY ','
+-- LINES TERMINATED BY '\r'
+-- IGNORE 1 LINES;
+-- 
+-- LOAD DATA INFILE '/tmp/pop_insurance.csv' INTO TABLE InsuranceDistribution
+-- FIELDS TERMINATED BY ','
+-- LINES TERMINATED BY '\r'
+-- IGNORE 1 LINES;
+-- 
+-- LOAD DATA INFILE '/tmp/pop_diversity.csv' INTO TABLE Diversity
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+-- 
+-- LOAD DATA INFILE '/tmp/household.csv' INTO TABLE HouseHold
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+--   
+--   
+-- LOAD DATA INFILE '/tmp/houseUnits.csv' INTO TABLE HouseUnitDistribution
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
+--   
+-- LOAD DATA INFILE '/tmp/houseOccpied.csv' INTO TABLE OccupiedDistribution
+--   FIELDS TERMINATED BY ','
+--   LINES TERMINATED BY '\r'
+--   IGNORE 1 LINES;
 
 
 
