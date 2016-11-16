@@ -60,7 +60,7 @@ GROUP BY Address.AddressId, state, county, hispanic, white, black, aian, asian, 
 
 
 
-#  List top three county with highest rate of health insurance in each state 
+#  List top three county with highest rate of health insurance in Washington, New York and California state 
 SELECT * FROM(
 		SELECT State, County, AVG((1- NoInsurance/total)*100) AS County_AVE_RATE
 			FROM InsuranceDistribution
@@ -107,7 +107,7 @@ UNION
 			WHERE state ='Texa'
 		GROUP BY State, County
 		ORDER BY County_AVE_RATE DESC
-		LIMIT 3) AS D 
+		LIMIT 3) AS D;
 
 
 # What percentage of each HouseHold that does not have services, MedianHouseValue > 500000?
@@ -122,6 +122,7 @@ SELECT County, SUM(TotalPersonsInHouseholds) FROM
 	Address INNER JOIN HouseHold
 	ON HouseHold.AddressId = Address.AddressId
 	GROUP BY County;
+
 
 # what areas that have Male/Female rate than 2?
 SELECT Population.AddressId
