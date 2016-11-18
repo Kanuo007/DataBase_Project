@@ -1,0 +1,70 @@
+input.form-control {
+    margin-bottom: 5px;
+}
+.inMiddle {
+    margin : 30px;
+}
+
+body {
+    margin : 30px;
+}
+
+table {
+    margin-left: 20px;
+}
+
+.glyphiconPositionRight {
+    float: right;
+}
+
+.glyphiconPositionRight-leave10 {
+    padding-right: 10px;
+    float: right;
+}
+
+.glyphiconPositionLeft {
+    float: left;
+}
+
+.white-color {
+    color: white;
+}
+
+.blue-color {
+    color: steelblue;
+}
+
+.gray-color {
+    color: gray;
+}
+
+/* Hide for mobile, show later */
+.sideHide {
+    display: none;
+}
+
+
+.relative-position {
+    position: relative;
+}
+.absolute-position {
+    position: absolute;
+}
+.list-element-menu {
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+}
+.zero-right-padding {
+    padding-right: 0;
+}
+
+
+#list > ul > li {
+    margin: 20px;
+}
+
+.left-colon > li {
+    margin: 15px;
+}
