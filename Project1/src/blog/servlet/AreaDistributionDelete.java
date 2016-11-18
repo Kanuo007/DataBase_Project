@@ -1,5 +1,7 @@
-package neighbor.servlet;
-
+package blog.servlet;
+/*
+ * wen chen
+ */
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -10,8 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import neighbor.dao.AreaDistributionDao;
-import neighbor.model.AreaDistribution;
+import blog.dal.AreaDistributionDao;
+import blog.model.AreaDistribution;
 
 
 @WebServlet("/AreaDistributionDelete")

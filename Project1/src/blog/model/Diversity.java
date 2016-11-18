@@ -1,5 +1,7 @@
-package neighbor.model;
-
+package blog.model;
+/*
+ * wen chen
+ */
 public class Diversity {
   private long PopulationId;
   private int hispanic;

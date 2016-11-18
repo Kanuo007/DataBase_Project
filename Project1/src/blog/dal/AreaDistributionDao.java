@@ -1,11 +1,13 @@
-package neighbor.dao;
-
+package blog.dal;
+/*
+ * wen chen
+ */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import neighbor.model.AreaDistribution;
+import blog.model.AreaDistribution;
 
 
 

@@ -1,5 +1,7 @@
-package neighbor.servlet;
-
+package blog.servlet;
+/*
+ * wen chen 
+ */
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,10 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import neighbor.dao.AreaDistributionDao;
-import neighbor.dao.DiversityDao;
-import neighbor.model.AreaDistribution;
-import neighbor.model.Diversity;
+import blog.dal.AreaDistributionDao;
+import blog.dal.DiversityDao;
+import blog.model.AreaDistribution;
+import blog.model.Diversity;
 
 @WebServlet("/getDiversityByPopulationId")
 public class getDiversityByPopulationId extends HttpServlet{
