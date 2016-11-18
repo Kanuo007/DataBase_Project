@@ -1,4 +1,4 @@
-package restaurant.model;
+package blog.model;
 //Yudong Wang
 public class AgeDistribution {
 

@@ -1,4 +1,4 @@
-package restaurant.dal;
+package blog.dal;
 //Yudong Wang
 
 import java.sql.Connection;
@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import restaurant.model.HouseUnitDistribution;
+import blog.model.HouseUnitDistribution;
 
 
 public class HouseUnitDistributionDao {
