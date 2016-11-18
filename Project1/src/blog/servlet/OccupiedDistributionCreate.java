@@ -16,7 +16,7 @@ import blog.dal.OccupiedDistributionDao;
 import blog.model.Household;
 import blog.model.OccupiedDistribution;
 
-@WebServlet("/occupiedDistributioncreate")
+@WebServlet("/occupiedDistributionCreate")
 public class OccupiedDistributionCreate extends HttpServlet {
 
   protected OccupiedDistributionDao occupiedDistributionDao;

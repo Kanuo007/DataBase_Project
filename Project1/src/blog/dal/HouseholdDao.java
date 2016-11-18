@@ -88,7 +88,6 @@ public class HouseholdDao {
   }
 
 
-
   /**
    * Update the medianHouseValue of the HouseHold instance. This runs a UPDATE statement.
    */
@@ -123,8 +122,6 @@ public class HouseholdDao {
    * Delete the Household instance. This runs a DELETE statement.
    */
   public Household delete(Household household) throws SQLException {
-
-
     String deleteHousehold = "DELETE FROM household WHERE householdId=?;";
     Connection connection = null;
     PreparedStatement deleteStmt = null;
@@ -235,7 +232,8 @@ public class HouseholdDao {
             + "TotalPersonsInHouseholds, NumOfHouseholdsWithoutTeleService,"
             + "NumOfHouseholdsLackFacilities,  NumOfHouseholdsBuiltAfter2010,"
             + "MedianHouseValue, totalHouseValue, NumOfAssistanceFamilies,TotalNumOfHouseholds,"
-            + "NumOfHouseholdsMovedInAfter2010 FROM Household WHERE MedianHouseValue >=? AND MedianHouseValue <= ? limit 50;";
+            + "NumOfHouseholdsMovedInAfter2010 FROM Household WHERE MedianHouseValue >=? AND "
+            + "MedianHouseValue <= ? limit 50;";
 
     Connection connection = null;
     PreparedStatement selectStmt = null;
@@ -264,7 +262,6 @@ public class HouseholdDao {
         int NumOfAssistanceFamilies = results.getInt("NumOfAssistanceFamilies");
         int TotalNumOfHouseholds = results.getInt("TotalNumOfHouseholds");
         int NumOfHouseholdsMovedInAfter2010 = results.getInt("NumOfHouseholdsMovedInAfter2010");
-
 
         Household household = new Household(resultHouseholdId, address, totalIncomeOfHouseholds,
             AVGIncomeOfHouseholds, NumOfFamilyWithChildUnderSix, NumOfFamilyWithOneOrMoreUnder18,

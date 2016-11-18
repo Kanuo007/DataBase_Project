@@ -12,9 +12,9 @@
 </head>
 <body>
 	<h1>Create HouseHold</h1>
-	<form action="householdcreate" method="post">
+	<form action="houseHoldCreate" method="post">
 		<p>
-			<label for="addressId">addressId</label>
+			<label for="addressId">AddressId</label>
 			<input id="addressId" name="addressId" value="">
 		</p>
 		<p>
@@ -54,7 +54,7 @@
 			<input id="MedianHouseValue" name="MedianHouseValue" value="">
 		</p>
 		<p>
-			<label for="totalHouseValue">totalHouseValue</label>
+			<label for="totalHouseValue">TotalHouseValue</label>
 			<input id="totalHouseValue" name="totalHouseValue" value="">
 		</p>
 		<p>

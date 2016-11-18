@@ -17,7 +17,6 @@ import blog.dal.HouseholdDao;
 import blog.model.Household;
 
 
-
 @WebServlet("/findHouseHold")
 public class FindHouseHold extends HttpServlet {
 
@@ -42,10 +41,8 @@ public class FindHouseHold extends HttpServlet {
     String medianHouseValueTo = req.getParameter("medianHouseValueTo");
 
     if ((householdId == null) || householdId.trim().isEmpty()) {
-      if (((medianHouseValueFrom == null) || medianHouseValueFrom.trim().isEmpty())
-          && ((medianHouseValueTo == null) || medianHouseValueTo.trim().isEmpty())) {
-        messages.put("success", "Please enter a valid household Id or medianHouse values.");
-      } else {
+      if (((medianHouseValueFrom != null) && !medianHouseValueFrom.trim().isEmpty())
+          || ((medianHouseValueTo != null) && !medianHouseValueTo.trim().isEmpty())) {
         int medianHouseValueFromInt = 0;
         int medianHouseValueToInt = -1;
         if ((medianHouseValueFrom != null) && !medianHouseValueFrom.trim().isEmpty()) {
@@ -77,11 +74,9 @@ public class FindHouseHold extends HttpServlet {
       messages.put("medianHouseValueTo", medianHouseValueTo);
     }
 
-
     req.setAttribute("households", households);
     req.getRequestDispatcher("/FindHouseHold.jsp").forward(req, resp);
   }
-
 
 
   @Override
@@ -131,7 +126,6 @@ public class FindHouseHold extends HttpServlet {
       messages.put("medianHouseValueFrom", medianHouseValueFrom);
       messages.put("medianHouseValueTo", medianHouseValueTo);
     }
-
 
     req.setAttribute("households", households);
     req.getRequestDispatcher("/FindHouseHold.jsp").forward(req, resp);

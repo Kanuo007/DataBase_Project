@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>Create OccupiedDistribution</h1>
-	<form action="occupiedDistributioncreate" method="post">
+	<form action="occupiedDistributionCreate" method="post">
 		<p>
 			<label for="HouseHoldId">HouseHoldId</label>
 			<input id="HouseHoldId" name="HouseHoldId" value="">

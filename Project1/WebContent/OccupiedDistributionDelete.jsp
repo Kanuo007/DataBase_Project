@@ -8,11 +8,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Delete a OccupiedDistribution</title>
+<title>Delete an OccupiedDistribution</title>
 </head>
 <body>
 	<h1>${messages.title}</h1>
-	<form action="occupiedDistributiondelete" method="post">
+	<form action="occupiedDistributionDelete" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 				<label for="householdId">HouseholdId</label>

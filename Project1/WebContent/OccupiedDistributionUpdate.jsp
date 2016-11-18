@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>Update an OccupiedDistribution</h1>
-	<form action="occupiedDistributionupdate" method="post">
+	<form action="occupiedDistributionUpdate" method="post">
 	    <p>
 			<label for="householdId">HouseHoldId</label>
 			<input id="householdId" name="householdId" value="${fn:escapeXml(param.householdId)}">

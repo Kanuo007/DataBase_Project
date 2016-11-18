@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>${messages.title}</h1>
-	<form action="householddelete" method="post">
+	<form action="houseHoldDelete" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 				<label for="householdId">HouseholdId</label>

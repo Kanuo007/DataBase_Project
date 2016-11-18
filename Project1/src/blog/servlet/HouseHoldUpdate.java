@@ -15,7 +15,7 @@ import blog.dal.HouseholdDao;
 import blog.model.Household;
 
 
-@WebServlet("/householdupdate")
+@WebServlet("/houseHoldUpdate")
 public class HouseHoldUpdate extends HttpServlet {
   protected HouseholdDao householdDao;
 

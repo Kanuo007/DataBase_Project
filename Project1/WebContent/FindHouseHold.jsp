@@ -32,7 +32,7 @@
 		</p>
 	</form>
 	<br/>
-	<!--  --><div id="householdcreate"><a href="householdcreate">Create HouseHold</a></div>
+	<div id="houseHoldCreate"><a href="houseHoldCreate">Create HouseHold</a></div>
 	<br/>
 	<h1>Matching HouseHold</h1>
         <table border="1">
@@ -45,6 +45,8 @@
                 <th>TotalNumOfHouseholds</th>
                 <th>TotalHouseValue</th>
                 <th>MedianHouseValue</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <c:forEach items="${households}" var="household" >
             <tr>
@@ -56,6 +58,8 @@
                 <td><c:out value="${household.getTotalNumOfHouseholds()}" /></td>
                 <td><c:out value="${household.getTotalHouseValue()}" /></td>
                 <td><c:out value="${household.getMedianHouseValue()}" /></td>
+                <td><a href="houseHoldUpdate?householdId=<c:out value="${household.getHouseholdId()}"/>">Edit</a></td>
+                <td><a href="houseHoldDelete?householdId=<c:out value="${household.getHouseholdId()}"/>">Delete</a></td>
              </tr>
              </c:forEach>
        </table>

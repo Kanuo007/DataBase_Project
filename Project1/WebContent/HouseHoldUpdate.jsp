@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>Update HouseHold By MedianHouseValue</h1>
-	<form action="householdupdate" method="post">
+	<form action="houseHoldUpdate" method="post">
 		<p>
 			<label for="householdId">HouseHoldId</label>
 			<input id="householdId" name="householdId" value="${fn:escapeXml(param.householdId)}">

@@ -41,10 +41,8 @@ public class FindOccupiedDistribution extends HttpServlet {
     String totalOccupiedUnitTo = req.getParameter("totalOccupiedUnitTo");
 
     if ((householdId == null) || householdId.trim().isEmpty()) {
-      if (((totalOccupiedUnitFrom == null) || totalOccupiedUnitFrom.trim().isEmpty())
-          && ((totalOccupiedUnitTo == null) || totalOccupiedUnitTo.trim().isEmpty())) {
-        messages.put("success", "Please enter a valid household Id or totalOccupiedUnit values.");
-      } else {
+      if (((totalOccupiedUnitFrom != null) && !totalOccupiedUnitFrom.trim().isEmpty())
+          || ((totalOccupiedUnitTo != null) && !totalOccupiedUnitTo.trim().isEmpty())) {
         int totalOccupiedUnitFromInt = 0;
         int totalOccupiedUnitToInt = -1;
         if ((totalOccupiedUnitFrom != null) && !totalOccupiedUnitFrom.trim().isEmpty()) {
@@ -76,7 +74,6 @@ public class FindOccupiedDistribution extends HttpServlet {
       messages.put("medianHouseValueFrom", totalOccupiedUnitFrom);
       messages.put("medianHouseValueTo", totalOccupiedUnitTo);
     }
-
 
     req.setAttribute("occupiedDistributions", occupiedDistributions);
     req.getRequestDispatcher("/FindOccupiedDistribution.jsp").forward(req, resp);

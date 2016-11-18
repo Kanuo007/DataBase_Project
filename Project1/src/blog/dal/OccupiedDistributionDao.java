@@ -93,8 +93,8 @@ public class OccupiedDistributionDao {
 
 
   /**
-   * Get the HouseUnitDistribution record by fetching it from your MySQL instance. This runs a
-   * SELECT statement and returns a single Persons instance.
+   * Get the OccupiedDistribution record by fetching it from your MySQL instance. This runs a SELECT
+   * statement and returns a single OccupiedDistribution instance.
    */
   public OccupiedDistribution getOccupiedDistributionFromHouseHoldId(int householdId)
       throws SQLException {
@@ -139,7 +139,10 @@ public class OccupiedDistributionDao {
   }
 
 
-
+  /**
+   * Get the OccupiedDistribution record by fetching it from your MySQL instance. This runs a SELECT
+   * statement and returns a list of OccupiedDistribution instances.
+   */
   public List<OccupiedDistribution> getOccupiedDistributionByTotalOccupiedUnit(
       int totalOccupiedUnitFrom, int totalOccupiedUnitTo) throws SQLException {
     List<OccupiedDistribution> occupiedDistributions = new ArrayList<>();
@@ -159,7 +162,6 @@ public class OccupiedDistributionDao {
     PreparedStatement selectStmt = null;
     ResultSet results = null;
 
-
     try {
       connection = this.connectionManager.getConnection();
       selectStmt = connection.prepareStatement(selectOccupiedDistribution);
@@ -173,7 +175,6 @@ public class OccupiedDistributionDao {
         int totalVacantUnit = results.getInt("TotalVacantUnit");
         int renterOccupiedUnit = results.getInt("RenterOccupiedUnit");
         int ownerOccupiedUnit = results.getInt("OwnerOccupiedUnit");
-
 
         Household household = householdDao.getHouseholdFromHouseholdId(resultHouseholdId);
         OccupiedDistribution occupiedDistribution = new OccupiedDistribution(totalOccupiedUnit,
@@ -196,7 +197,6 @@ public class OccupiedDistributionDao {
     }
     return occupiedDistributions;
   }
-
 
 
   /**

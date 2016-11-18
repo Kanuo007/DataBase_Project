@@ -32,9 +32,9 @@
 		</p>
 	</form>
 	<br/>
-	<!-- <div id="occupiedDistributioncreate"><a href="occupiedDistributioncreate">Create HouseHold</a></div> -->
+	<div id="occupiedDistributionCreate"><a href="occupiedDistributionCreate">Create OccupiedDistribution</a></div>
 	<br/>
-	<h1>Matching OccupiedDistribution</h1>
+	<h1>Matching OccupiedDistributions</h1>
         <table border="1">
             <tr>
                 <th>HouseholdId</th>
@@ -42,14 +42,18 @@
                 <th>TotalVacantUnit</th>
                 <th>RenterOccupiedUnit</th>
                 <th>OwnerOccupiedUnit</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <c:forEach items="${occupiedDistributions}" var="occupiedDistribution" >
                 <tr>
                     <td><c:out value="${occupiedDistribution.getHousedhold().getHouseholdId()}" /></td>
                     <td><c:out value="${occupiedDistribution.getTotalOccupiedUnit()}" /></td>
                     <td><c:out value="${occupiedDistribution.getTotalVacantUnit()}" /></td>
-                   <td><c:out value="${occupiedDistribution.getRenterOccupiedUnit()}" /></td>
+                    <td><c:out value="${occupiedDistribution.getRenterOccupiedUnit()}" /></td>
                     <td><c:out value="${occupiedDistribution.getOwnerOccupiedUnit()}" /></td>
+                    <td><a href="occupiedDistributionUpdate?householdId=<c:out value="${occupiedDistribution.getHousedhold().getHouseholdId()}"/>">Edit</a></td>
+                    <td><a href="occupiedDistributionDelete?householdId=<c:out value="${occupiedDistribution.getHousedhold().getHouseholdId()}"/>">Delete</a></td>
                 </tr>
                 </c:forEach>
        </table>

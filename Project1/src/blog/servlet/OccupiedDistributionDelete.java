@@ -16,7 +16,7 @@ import blog.dal.OccupiedDistributionDao;
 import blog.model.Household;
 import blog.model.OccupiedDistribution;
 
-@WebServlet("/occupiedDistributiondelete")
+@WebServlet("/occupiedDistributionDelete")
 public class OccupiedDistributionDelete extends HttpServlet {
 
   protected OccupiedDistributionDao occupiedDistributionDao;

@@ -15,7 +15,7 @@ import blog.dal.OccupiedDistributionDao;
 import blog.model.OccupiedDistribution;
 
 
-@WebServlet("/occupiedDistributionupdate")
+@WebServlet("/occupiedDistributionUpdate")
 public class OccupiedDistributionUpdate extends HttpServlet {
 
   protected OccupiedDistributionDao occupiedDistributionDao;
@@ -42,7 +42,7 @@ public class OccupiedDistributionUpdate extends HttpServlet {
         OccupiedDistribution occupiedDistribution = this.occupiedDistributionDao
             .getOccupiedDistributionFromHouseHoldId(Integer.parseInt(householdId));
         if (occupiedDistribution == null) {
-          messages.put("success", "0ccupiedDistribution does not exist.");
+          messages.put("success", "occupiedDistribution does not exist.");
         }
         req.setAttribute("occupiedDistribution ", occupiedDistribution);
       } catch (SQLException e) {

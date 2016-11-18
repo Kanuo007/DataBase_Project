@@ -15,7 +15,7 @@ import blog.dal.HouseholdDao;
 import blog.model.Household;
 
 
-@WebServlet("/householddelete")
+@WebServlet("/houseHoldDelete")
 public class HouseHoldDelete extends HttpServlet {
   protected HouseholdDao householdDao;
 
