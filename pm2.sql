@@ -68,10 +68,10 @@ CREATE TABLE GenderDistribution (
 CREATE TABLE AgeDistribution (
   PopulationId BIGINT,
   LessThan5 INT,
-  5To17 INT,
-  18To24 INT,
-  25To44 INT,
-  45To64 INT,
+  From5To17 INT,
+  From18To24 INT,
+  From25To44 INT,
+  From45To64 INT,
   MoreThan65 INT,
   CONSTRAINT pk_AgeDistribution_populationId PRIMARY KEY (PopulationId),
   CONSTRAINT fk_AgeDistribution_populationId FOREIGN KEY (PopulationId)
@@ -95,6 +95,7 @@ CREATE TABLE EducationDistribution (
 	PopulationId BIGINT NOT NULL,
     NotHighSchool INT,
     College INT,
+    HighSchool INT,
     CONSTRAINT pk_EducationDistribution_PopulationId PRIMARY KEY (PopulationId),
 	CONSTRAINT fk_EducationDistribution_PopulationId FOREIGN KEY (PopulationId)
     REFERENCES Population(PopulationId)
@@ -215,65 +216,65 @@ CREATE TABLE OccupiedDistribution (
    );
 
 # Load the data.
--- LOAD DATA INFILE '/tmp/address.csv' INTO TABLE Address
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
---   
--- LOAD DATA INFILE '/tmp/population.csv' INTO TABLE Population
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
---  
--- 
--- LOAD DATA INFILE '/tmp/GenderDistribution.csv' INTO TABLE GenderDistribution
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
---   
---   
--- LOAD DATA INFILE '/tmp/AgeDistribution.csv' INTO TABLE AgeDistribution
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
--- 
--- 
--- 
--- LOAD DATA INFILE '/tmp/pop_area.csv' INTO TABLE AreaDistribution
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r'
--- IGNORE 1 LINES;
--- 
--- LOAD DATA INFILE '/tmp/pop_edu.csv' INTO TABLE EducationDistribution
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r'
--- IGNORE 1 LINES;
--- 
--- LOAD DATA INFILE '/tmp/pop_insurance.csv' INTO TABLE InsuranceDistribution
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r'
--- IGNORE 1 LINES;
--- 
--- LOAD DATA INFILE '/tmp/pop_diversity.csv' INTO TABLE Diversity
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
--- 
--- LOAD DATA INFILE '/tmp/household.csv' INTO TABLE HouseHold
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
---   
---   
--- LOAD DATA INFILE '/tmp/houseUnits.csv' INTO TABLE HouseUnitDistribution
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
---   
--- LOAD DATA INFILE '/tmp/houseOccpied.csv' INTO TABLE OccupiedDistribution
---   FIELDS TERMINATED BY ','
---   LINES TERMINATED BY '\r'
---   IGNORE 1 LINES;
+LOAD DATA INFILE '/tmp/address.csv' INTO TABLE Address
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+  
+LOAD DATA INFILE '/tmp/population.csv' INTO TABLE Population
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+ 
+
+LOAD DATA INFILE '/tmp/GenderDistribution.csv' INTO TABLE GenderDistribution
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+  
+  
+LOAD DATA INFILE '/tmp/AgeDistribution.csv' INTO TABLE AgeDistribution
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+
+
+
+LOAD DATA INFILE '/tmp/pop_area.csv' INTO TABLE AreaDistribution
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE '/tmp/pop_edu.csv' INTO TABLE EducationDistribution
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE '/tmp/pop_insurance.csv' INTO TABLE InsuranceDistribution
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE '/tmp/pop_diversity.csv' INTO TABLE Diversity
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+
+LOAD DATA INFILE '/tmp/household.csv' INTO TABLE HouseHold
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+  
+  
+LOAD DATA INFILE '/tmp/houseUnits.csv' INTO TABLE HouseUnitDistribution
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
+  
+LOAD DATA INFILE '/tmp/houseOccpied.csv' INTO TABLE OccupiedDistribution
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\r'
+  IGNORE 1 LINES;
 
 
 
