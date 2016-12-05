@@ -35,7 +35,7 @@ public class EducationDistributionDao extends PopulationDao {
         new Population(educationDistribution.getAddressId(), educationDistribution.getTotal()));
 
     String insertEducationDistribution =
-        "INSERT INTO EducationDistribution(PopulationId,notHighSchool,College) VALUES(?,?,?);";
+        "INSERT INTO EducationDistribution(PopulationId,notHighSchool,highschool,College) VALUES(?,?,?,?);";
     Connection connection = null;
     PreparedStatement insertStmt = null;
     ResultSet resultKey = null;
@@ -44,7 +44,8 @@ public class EducationDistributionDao extends PopulationDao {
       insertStmt = connection.prepareStatement(insertEducationDistribution);
       insertStmt.setLong(1, population.getPopulationId());
       insertStmt.setInt(2, educationDistribution.getNotHighSchool());
-      insertStmt.setInt(3, educationDistribution.getCollege());
+      insertStmt.setInt(3, educationDistribution.getHighSchool());
+      insertStmt.setInt(4, educationDistribution.getCollege());
       insertStmt.executeUpdate();
       educationDistribution.setPopulationId(population.getPopulationId());
       return educationDistribution;
@@ -147,7 +148,7 @@ public class EducationDistributionDao extends PopulationDao {
   public EducationDistribution getEducationDistributionFromPopulationId(long populationId)
       throws SQLException {
     String selectEducationDistribution =
-        "SELECT Population.PopulationId AS PopulationId, AddressId, Total, NotHighSchool, College "
+        "SELECT Population.PopulationId AS PopulationId, AddressId, Total, NotHighSchool, HighSchool, College "
             + "FROM Population INNER JOIN EducationDistribution "
             + "  ON Population.PopulationId = EducationDistribution.PopulationId "
             + "WHERE Population.PopulationId=?;";
@@ -164,9 +165,10 @@ public class EducationDistributionDao extends PopulationDao {
         long addressId = results.getLong("AddressId");
         int total = results.getInt("Total");
         int notHighSchool = results.getInt("NotHighSchool");
+        int highSchool = results.getInt("HighSchool");
         int college = results.getInt("College");
-        EducationDistribution educationDistribution =
-            new EducationDistribution(resultPopulationId, addressId, total, notHighSchool, college);
+        EducationDistribution educationDistribution = new EducationDistribution(resultPopulationId,
+            addressId, total, notHighSchool, highSchool, college);
         return educationDistribution;
       }
     } catch (SQLException e) {
