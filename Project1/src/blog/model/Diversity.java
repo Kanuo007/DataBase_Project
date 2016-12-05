@@ -1,4 +1,5 @@
 package blog.model;
+
 /*
  * wen chen
  */
@@ -11,9 +12,9 @@ public class Diversity {
   private int asian;
   private int NHOPI;
   private int SOR;
-  
-  public Diversity(long PopulationId, int hispanic, int white, int black, int aian, 
-      int asian, int NHOPI, int SOR){
+
+  public Diversity(long PopulationId, int hispanic, int white, int black, int aian, int asian,
+      int NHOPI, int SOR) {
     this.PopulationId = PopulationId;
     this.hispanic = hispanic;
     this.white = white;
@@ -29,15 +30,15 @@ public class Diversity {
   }
 
   public long getPopulationId() {
-    return PopulationId;
+    return this.PopulationId;
   }
 
   public void setPopulationId(long populationId) {
-    PopulationId = populationId;
+    this.PopulationId = populationId;
   }
 
   public int getHispanic() {
-    return hispanic;
+    return this.hispanic;
   }
 
   public void setHispanic(int hispanic) {
@@ -45,7 +46,7 @@ public class Diversity {
   }
 
   public int getWhite() {
-    return white;
+    return this.white;
   }
 
   public void setWhite(int white) {
@@ -53,7 +54,7 @@ public class Diversity {
   }
 
   public int getBlack() {
-    return black;
+    return this.black;
   }
 
   public void setBlack(int black) {
@@ -61,7 +62,7 @@ public class Diversity {
   }
 
   public int getAian() {
-    return aian;
+    return this.aian;
   }
 
   public void setAian(int aian) {
@@ -69,7 +70,7 @@ public class Diversity {
   }
 
   public int getAsian() {
-    return asian;
+    return this.asian;
   }
 
   public void setAsian(int asian) {
@@ -77,20 +78,41 @@ public class Diversity {
   }
 
   public int getNHOPI() {
-    return NHOPI;
+    return this.NHOPI;
   }
 
   public void setNHOPI(int nHOPI) {
-    NHOPI = nHOPI;
+    this.NHOPI = nHOPI;
   }
 
   public int getSOR() {
-    return SOR;
+    return this.SOR;
   }
 
   public void setSOR(int sOR) {
-    SOR = sOR;
+    this.SOR = sOR;
   }
-  
- 
+
+  public int getScore() {
+    int median = (this.getHispanic() + this.getAsian() + this.getBlack() + this.getAian()
+        + this.getNHOPI() + this.getSOR() + this.getWhite()) / 7;
+    double sum = Math.pow(this.getHispanic() - median, 2);
+    sum += Math.pow(this.getAsian() - median, 2);
+    sum += Math.pow(this.getBlack() - median, 2);
+    sum += Math.pow(this.getAian() - median, 2);
+    sum += Math.pow(this.getNHOPI() - median, 2);
+    sum += Math.pow(this.getSOR() - median, 2);
+    sum += Math.pow(this.getWhite() - median, 2);
+    int sd = (int) Math.sqrt(sum / 7);
+    return 100 - (((sd / 1000) + 1) * 3);
+  }
+
+  @Override
+  public String toString() {
+    return "Diversity [PopulationId=" + this.PopulationId + ", hispanic=" + this.hispanic
+        + ", white=" + this.white + ", black=" + this.black + ", aian=" + this.aian + ", asian="
+        + this.asian + ", NHOPI=" + this.NHOPI + ", SOR=" + this.SOR + "]";
+  }
+
+
 }
