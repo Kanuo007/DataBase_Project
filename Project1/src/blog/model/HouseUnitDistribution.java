@@ -3,15 +3,13 @@ package blog.model;
 public class HouseUnitDistribution {
 
 	protected int HouseHoldId;
-	protected int TotalHouseUnit;
 	protected int SingleUnit;
 	protected int TwoToNineUnit;
 	protected int TenMoreUnit;
 	protected int MobileHome;
 
-    public HouseUnitDistribution(int houseHoldId, int totalHouseUnit, int singleUnit, int twoToNineUnit, int tenMoreUnit, int mobileHome) {
+    public HouseUnitDistribution(int houseHoldId, int singleUnit, int twoToNineUnit, int tenMoreUnit, int mobileHome) {
         HouseHoldId = houseHoldId;
-        TotalHouseUnit = totalHouseUnit;
         SingleUnit = singleUnit;
         TwoToNineUnit = twoToNineUnit;
         TenMoreUnit = tenMoreUnit;
@@ -26,13 +24,6 @@ public class HouseUnitDistribution {
         HouseHoldId = houseHoldId;
     }
 
-    public int getTotalHouseUnit() {
-        return TotalHouseUnit;
-    }
-
-    public void setTotalHouseUnit(int totalHouseUnit) {
-        TotalHouseUnit = totalHouseUnit;
-    }
 
     public int getSingleUnit() {
         return SingleUnit;
@@ -70,7 +61,6 @@ public class HouseUnitDistribution {
     public String toString() {
         return "HouseUnitDistribution{" +
             "HouseHoldId=" + HouseHoldId +
-            ", TotalHouseUnit=" + TotalHouseUnit +
             ", SingleUnit=" + SingleUnit +
             ", TwoToNineUnit=" + TwoToNineUnit +
             ", TenMoreUnit=" + TenMoreUnit +
