@@ -132,5 +132,13 @@ public class DisplayPopulation extends HttpServlet {
     return (populationId == null) || populationId.trim().isEmpty();
   }
 
+  /**
+   * Given valid ageDistribution, diversity and educationDistribution, return the calculated score
+   */
+  public double score(AgeDistribution ageDistribution, Diversity diversity,
+      EducationDistribution educationDistribution) {
+    return (0.3 * ageDistribution.getScore()) + (0.3 * diversity.getScore())
+        + (0.4 * educationDistribution.getScore());
+  }
 
 }

@@ -58,6 +58,7 @@ public class CreateEducationDistribution extends HttpServlet {
       } else {
         String total = req.getParameter("total");
         String notHighSchool = req.getParameter("nothighschool");
+        String highSchool = req.getParameter("highschool");
         String college = req.getParameter("college");
         if ((total == null) || total.trim().isEmpty()) {
           messages.put("success", "Invalid total");
@@ -70,7 +71,8 @@ public class CreateEducationDistribution extends HttpServlet {
             } else {
               EducationDistribution educationDistribution =
                   new EducationDistribution(Long.parseLong(addressId), Integer.parseInt(total),
-                      Integer.parseInt(notHighSchool), Integer.parseInt(college));
+                      Integer.parseInt(notHighSchool), Integer.parseInt(highSchool),
+                      Integer.parseInt(college));
               try {
                 this.educationDistributionDao.create(educationDistribution);
               } catch (SQLException e) {
